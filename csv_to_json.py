@@ -9,5 +9,10 @@ reader = csv.DictReader(csvfile, fieldnames)
 
 first_line = reader.next()
 for row in reader:
-    json.dump(row, jsonfile)
+    dictionary = {}
+    dictionary[fieldnames[0]] = int(row[fieldnames[0]])
+    dictionary[fieldnames[1]] = int(row[fieldnames[1]])
+    dictionary[fieldnames[2]] = float(row[fieldnames[2]])
+    dictionary[fieldnames[3]] = int(row[fieldnames[3]])
+    json.dump(dictionary, jsonfile)
     jsonfile.write('\n')
